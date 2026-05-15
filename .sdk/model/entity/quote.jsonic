@@ -1,0 +1,81 @@
+# Entity: quote
+
+main: kit: entity: quote: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "quote"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "quote"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/quotes"
+          parts: [
+            "quotes"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 5
+                kind: "param"
+                name: "id"
+                orig: "number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quotes/{number}"
+          parts: [
+            "quotes"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              number: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

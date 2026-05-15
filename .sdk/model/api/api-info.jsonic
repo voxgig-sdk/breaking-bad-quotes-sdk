@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://breakingbadquotes.xyz/"
+      }
+      description: "A free API to retrieve quotes from Breaking Bad. Get random quotes from your favorite characters."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.breakingbadquotes.xyz/v1"
+        }
+      ]
+      title: "Breaking Bad Quotes API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

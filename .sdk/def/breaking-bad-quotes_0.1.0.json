@@ -1,0 +1,143 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Breaking Bad Quotes API",
+    "description": "A free API to retrieve quotes from Breaking Bad. Get random quotes from your favorite characters.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://breakingbadquotes.xyz/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.breakingbadquotes.xyz/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/quotes": {
+      "get": {
+        "summary": "Get a random quote",
+        "description": "Returns a single random quote from Breaking Bad",
+        "operationId": "getRandomQuote",
+        "tags": [
+          "Quotes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a random quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quote"
+                  },
+                  "minItems": 1,
+                  "maxItems": 1
+                },
+                "example": [
+                  {
+                    "quote": "I am not in danger, Skyler. I AM the danger!",
+                    "author": "Walter White"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotes/{number}": {
+      "get": {
+        "summary": "Get multiple random quotes",
+        "description": "Returns a specified number of random quotes from Breaking Bad",
+        "operationId": "getMultipleRandomQuotes",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "description": "Number of random quotes to retrieve",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with multiple random quotes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quote"
+                  }
+                },
+                "example": [
+                  {
+                    "quote": "I am not in danger, Skyler. I AM the danger!",
+                    "author": "Walter White"
+                  },
+                  {
+                    "quote": "Yeah, science!",
+                    "author": "Jesse Pinkman"
+                  },
+                  {
+                    "quote": "Say my name.",
+                    "author": "Walter White"
+                  },
+                  {
+                    "quote": "Tread lightly.",
+                    "author": "Walter White"
+                  },
+                  {
+                    "quote": "I won.",
+                    "author": "Walter White"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "quote": {
+            "type": "string",
+            "description": "The quote text"
+          },
+          "author": {
+            "type": "string",
+            "description": "The character who said the quote"
+          }
+        },
+        "required": [
+          "quote",
+          "author"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Quotes",
+      "description": "Endpoints for retrieving Breaking Bad quotes"
+    }
+  ],
+  "externalDocs": {
+    "description": "Complete API documentation on GitHub",
+    "url": "https://breakingbadquotes.xyz/"
+  }
+}

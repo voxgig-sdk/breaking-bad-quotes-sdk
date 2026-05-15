@@ -1,0 +1,18 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: quote: {
+    path: "/quotes": {
+      op: list: method: *GET
+    }
+    path: "/quotes/{number}": {
+      rename: param: "number": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}
