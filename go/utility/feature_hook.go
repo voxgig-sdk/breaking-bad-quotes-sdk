@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/core"
+	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

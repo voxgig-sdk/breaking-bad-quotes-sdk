@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/core"
+	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/core"
 )
 
 func prepareHeadersUtil(ctx *core.Context) map[string]any {

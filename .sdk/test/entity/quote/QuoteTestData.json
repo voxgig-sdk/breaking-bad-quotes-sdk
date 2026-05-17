@@ -3,15 +3,18 @@
     "quote": {
       "QUOTE00": {
         "author": "s14",
-        "quote": "s15"
+        "quote": "s15",
+        "id": "QUOTE00"
       },
       "QUOTE01": {
         "author": "s28",
-        "quote": "s29"
+        "quote": "s29",
+        "id": "QUOTE01"
       },
       "QUOTE02": {
         "author": "s3c",
-        "quote": "s3d"
+        "quote": "s3d",
+        "id": "QUOTE02"
       }
     }
   },

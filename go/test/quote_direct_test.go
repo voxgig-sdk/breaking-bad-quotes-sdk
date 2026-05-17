@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk"
-	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/core"
+	sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk/go"
+	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/core"
 )
 
 func TestQuoteDirect(t *testing.T) {

@@ -3,7 +3,7 @@ package utility
 import (
 	"fmt"
 
-	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/core"
+	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/core"
 )
 
 func resultBasicUtil(ctx *core.Context) *core.Result {

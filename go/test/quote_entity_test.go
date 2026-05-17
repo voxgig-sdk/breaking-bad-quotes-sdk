@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk"
-	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/core"
+	sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk/go"
+	"github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/breaking-bad-quotes-sdk/go/utility/struct"
 )
 
 func TestQuoteEntity(t *testing.T) {

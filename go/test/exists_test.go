@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk"
+	sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk/go"
 )
 
 func TestExists(t *testing.T) {
