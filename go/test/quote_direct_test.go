@@ -175,14 +175,12 @@ func quoteDirectSetup(mockres any) *quoteDirectSetupResult {
 	env := envOverride(map[string]any{
 		"BREAKINGBADQUOTES_TEST_QUOTE_ENTID": map[string]any{},
 		"BREAKINGBADQUOTES_TEST_LIVE":    "FALSE",
-		"BREAKINGBADQUOTES_APIKEY":       "NONE",
 	})
 
 	live := env["BREAKINGBADQUOTES_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["BREAKINGBADQUOTES_APIKEY"],
 		}
 		client := sdk.NewBreakingBadQuotesSDK(mergedOpts)
 

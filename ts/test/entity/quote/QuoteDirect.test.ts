@@ -117,14 +117,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'BREAKINGBADQUOTES_TEST_QUOTE_ENTID': {},
     'BREAKINGBADQUOTES_TEST_LIVE': 'FALSE',
-    'BREAKINGBADQUOTES_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.BREAKINGBADQUOTES_TEST_LIVE
 
   if (live) {
     const client = new BreakingBadQuotesSDK({
-      apikey: env.BREAKINGBADQUOTES_APIKEY,
     })
 
     let idmap: any = env['BREAKINGBADQUOTES_TEST_QUOTE_ENTID']

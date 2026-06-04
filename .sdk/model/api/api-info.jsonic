@@ -16,8 +16,21 @@ main: {
       ]
       title: "Breaking Bad Quotes API"
       version: "1.0.0"
+      tagline: "Pull random quotes from the cast of Breaking Bad via a tiny free REST API"
+      homepage: "https://api.breakingbadquotes.xyz/v1"
+      docs_url: "https://freepublicapis.com/breaking-bad-quotes"
+      about_md: `The Breaking Bad Quotes API is a small, free public service that returns random lines spoken by characters from the AMC series *Breaking Bad*. It exposes a single resource type — quotes — over plain HTTP with no authentication required.
+
+What you get from the API:
+
+- A random quote, returned as a quote string and the attributed character/author
+- An option to request multiple random quotes in one call by appending a count to the path (for example \`/quotes/5\`)
+
+Operational notes: the API has no documented authentication, no documented rate limit, and is community-run rather than backed by an official AMC source. Availability has historically been unreliable — consumers should expect occasional downtime and handle errors gracefully. CORS support is not guaranteed, so browser-side use may require a proxy.`
+      entity_desc: {
+        quote: "A single Breaking Bad line attributed to a character; fetched at `GET /quotes` for one random quote or `GET /quotes/{count}` for several."
+      }
+      auth: false
     }
   }
-}
-
 }

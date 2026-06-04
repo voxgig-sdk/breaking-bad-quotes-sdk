@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://api.breakingbadquotes.xyz/v1',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
