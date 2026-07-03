@@ -129,6 +129,7 @@ func quoteBasicSetup(extra map[string]any) *entityTestSetup {
 		"BREAKINGBADQUOTES_TEST_QUOTE_ENTID": idmap,
 		"BREAKINGBADQUOTES_TEST_LIVE":      "FALSE",
 		"BREAKINGBADQUOTES_TEST_EXPLAIN":   "FALSE",
+		"BREAKINGBADQUOTES_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["BREAKINGBADQUOTES_TEST_QUOTE_ENTID"])
@@ -139,6 +140,7 @@ func quoteBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["BREAKINGBADQUOTES_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["BREAKINGBADQUOTES_APIKEY"],
 			},
 			extra,
 		})

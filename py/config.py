@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://api.breakingbadquotes.xyz/v1",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,58 +29,60 @@ def make_config():
       "quote": {
         "fields": [
           {
+            "active": True,
             "name": "author",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "quote",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
         ],
         "name": "quote",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/quotes",
                 "parts": [
                   "quotes",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": 5,
                       "kind": "param",
                       "name": "id",
                       "orig": "number",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                 },
@@ -101,11 +106,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

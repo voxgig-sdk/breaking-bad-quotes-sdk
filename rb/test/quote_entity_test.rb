@@ -89,6 +89,7 @@ def quote_basic_setup(extra)
     "BREAKINGBADQUOTES_TEST_QUOTE_ENTID" => idmap,
     "BREAKINGBADQUOTES_TEST_LIVE" => "FALSE",
     "BREAKINGBADQUOTES_TEST_EXPLAIN" => "FALSE",
+    "BREAKINGBADQUOTES_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -100,6 +101,7 @@ def quote_basic_setup(extra)
   if env["BREAKINGBADQUOTES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["BREAKINGBADQUOTES_APIKEY"],
       },
       extra || {},
     ])

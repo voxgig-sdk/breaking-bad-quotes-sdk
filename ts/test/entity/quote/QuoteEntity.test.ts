@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'BREAKING_BAD_QUOTES_TEST_QUOTE_ENTID': idmap,
     'BREAKING_BAD_QUOTES_TEST_LIVE': 'FALSE',
     'BREAKING_BAD_QUOTES_TEST_EXPLAIN': 'FALSE',
+    'BREAKING_BAD_QUOTES_APIKEY': 'NONE',
   })
 
   idmap = env['BREAKING_BAD_QUOTES_TEST_QUOTE_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new BreakingBadQuotesSDK(merge([
       {
+        apikey: env.BREAKING_BAD_QUOTES_APIKEY,
       },
       extra
     ]))

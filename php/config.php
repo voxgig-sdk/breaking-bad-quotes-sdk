@@ -20,6 +20,9 @@ class BreakingBadQuotesConfig
             ],
             "options" => [
                 "base" => "https://api.breakingbadquotes.xyz/v1",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -31,58 +34,60 @@ class BreakingBadQuotesConfig
         'quote' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'author',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'quote',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
           ],
           'name' => 'quote',
           'op' => [
             'list' => [
+              'input' => 'data',
               'name' => 'list',
               'points' => [
                 [
+                  'active' => true,
+                  'args' => [],
                   'method' => 'GET',
                   'orig' => '/quotes',
                   'parts' => [
                     'quotes',
                   ],
+                  'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
-                  'args' => [],
-                  'select' => [],
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'list',
             ],
             'load' => [
+              'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'params' => [
                       [
+                        'active' => true,
                         'example' => 5,
                         'kind' => 'param',
                         'name' => 'id',
                         'orig' => 'number',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -106,11 +111,9 @@ class BreakingBadQuotesConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'load',
             ],
           ],

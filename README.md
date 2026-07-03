@@ -1,19 +1,8 @@
 # BreakingBadQuotes SDK
 
-Pull random quotes from the cast of Breaking Bad via a tiny free REST API
+Breaking Bad Quotes API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Breaking Bad Quotes API
-
-The Breaking Bad Quotes API is a small, free public service that returns random lines spoken by characters from the AMC series *Breaking Bad*. It exposes a single resource type — quotes — over plain HTTP with no authentication required.
-
-What you get from the API:
-
-- A random quote, returned as a quote string and the attributed character/author
-- An option to request multiple random quotes in one call by appending a count to the path (for example `/quotes/5`)
-
-Operational notes: the API has no documented authentication, no documented rate limit, and is community-run rather than backed by an official AMC source. Availability has historically been unreliable — consumers should expect occasional downtime and handle errors gracefully. CORS support is not guaranteed, so browser-side use may require a proxy.
 
 ## Try it
 
@@ -47,29 +36,31 @@ gem install breaking-bad-quotes-sdk
 luarocks install breaking-bad-quotes-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { BreakingBadQuotesSDK } from 'breaking-bad-quotes'
 
-const client = new BreakingBadQuotesSDK({})
+const client = new BreakingBadQuotesSDK({
+  apikey: process.env.BREAKING-BAD-QUOTES_APIKEY,
+})
 
 // List all quotes
 const quotes = await client.Quote().list()
+console.log(quotes.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Quote** | A single Breaking Bad line attributed to a character; fetched at `GET /quotes` for one random quote or `GET /quotes/{count}` for several. | `/quotes` |
+| **Quote** |  | `/quotes` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from breakingbadquotes_sdk import BreakingBadQuotesSDK
 
-client = BreakingBadQuotesSDK({})
+client = BreakingBadQuotesSDK({
+    "apikey": os.environ.get("BREAKING-BAD-QUOTES_APIKEY"),
+})
 
 # List all quotes
-quotes, err = client.Quote(None).list(None, None)
+quotes, err = client.Quote().list()
+print(quotes)
 
 # Load a specific quote
-quote, err = client.Quote(None).load(
-    {"id": "example_id"}, None
-)
+quote, err = client.Quote().load({"id": "example_id"})
+print(quote)
 ```
 
 ### PHP
@@ -128,15 +122,17 @@ quote, err = client.Quote(None).load(
 <?php
 require_once 'breakingbadquotes_sdk.php';
 
-$client = new BreakingBadQuotesSDK([]);
+$client = new BreakingBadQuotesSDK([
+    "apikey" => getenv("BREAKING-BAD-QUOTES_APIKEY"),
+]);
 
 // List all quotes
-[$quotes, $err] = $client->Quote(null)->list(null, null);
+[$quotes, $err] = $client->Quote()->list();
+print_r($quotes);
 
 // Load a specific quote
-[$quote, $err] = $client->Quote(null)->load(
-    ["id" => "example_id"], null
-);
+[$quote, $err] = $client->Quote()->load(["id" => "example_id"]);
+print_r($quote);
 ```
 
 ### Golang
@@ -144,10 +140,13 @@ $client = new BreakingBadQuotesSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/breaking-bad-quotes-sdk/go"
 
-client := sdk.NewBreakingBadQuotesSDK(map[string]any{})
+client := sdk.NewBreakingBadQuotesSDK(map[string]any{
+    "apikey": os.Getenv("BREAKING-BAD-QUOTES_APIKEY"),
+})
 
 // List all quotes
 quotes, err := client.Quote(nil).List(nil, nil)
+fmt.Println(quotes)
 ```
 
 ### Ruby
@@ -155,15 +154,17 @@ quotes, err := client.Quote(nil).List(nil, nil)
 ```ruby
 require_relative "BreakingBadQuotes_sdk"
 
-client = BreakingBadQuotesSDK.new({})
+client = BreakingBadQuotesSDK.new({
+  "apikey" => ENV["BREAKING-BAD-QUOTES_APIKEY"],
+})
 
 # List all quotes
-quotes, err = client.Quote(nil).list(nil, nil)
+quotes, err = client.Quote().list
+puts quotes
 
 # Load a specific quote
-quote, err = client.Quote(nil).load(
-  { "id" => "example_id" }, nil
-)
+quote, err = client.Quote().load({ "id" => "example_id" })
+puts quote
 ```
 
 ### Lua
@@ -171,15 +172,17 @@ quote, err = client.Quote(nil).load(
 ```lua
 local sdk = require("breaking-bad-quotes_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("BREAKING-BAD-QUOTES_APIKEY"),
+})
 
 -- List all quotes
-local quotes, err = client:Quote(nil):list(nil, nil)
+local quotes, err = client:Quote():list()
+print(quotes)
 
 -- Load a specific quote
-local quote, err = client:Quote(nil):load(
-  { id = "example_id" }, nil
-)
+local quote, err = client:Quote():load({ id = "example_id" })
+print(quote)
 ```
 
 ## Unit testing in offline mode
@@ -198,25 +201,21 @@ const result = await client.Quote().load({ id: 'test01' })
 ### Python
 
 ```python
-client = BreakingBadQuotesSDK.test(None, None)
-result, err = client.Quote(None).load(
-    {"id": "test01"}, None
-)
+client = BreakingBadQuotesSDK.test()
+result, err = client.Quote().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = BreakingBadQuotesSDK::test(null, null);
-[$result, $err] = $client->Quote(null)->load(
-    ["id" => "test01"], null
-);
+$client = BreakingBadQuotesSDK::test();
+[$result, $err] = $client->Quote()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Quote(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -225,19 +224,15 @@ result, err := client.Quote(nil).Load(
 ### Ruby
 
 ```ruby
-client = BreakingBadQuotesSDK.test(nil, nil)
-result, err = client.Quote(nil).load(
-  { "id" => "test01" }, nil
-)
+client = BreakingBadQuotesSDK.test
+result, err = client.Quote().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Quote(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Quote():load({ id = "test01" })
 ```
 
 ## How it works
@@ -341,11 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Breaking Bad Quotes API
-
-- Upstream: [https://api.breakingbadquotes.xyz/v1](https://api.breakingbadquotes.xyz/v1)
-- API docs: [https://freepublicapis.com/breaking-bad-quotes](https://freepublicapis.com/breaking-bad-quotes)
 
 ---
 

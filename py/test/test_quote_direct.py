@@ -106,12 +106,14 @@ def _quote_direct_setup(mockres):
     env = runner.env_override({
         "BREAKINGBADQUOTES_TEST_QUOTE_ENTID": {},
         "BREAKINGBADQUOTES_TEST_LIVE": "FALSE",
+        "BREAKINGBADQUOTES_APIKEY": "NONE",
     })
 
     live = env.get("BREAKINGBADQUOTES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("BREAKINGBADQUOTES_APIKEY"),
         }
         client = BreakingBadQuotesSDK(merged_opts)
         return {
