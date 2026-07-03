@@ -10,7 +10,7 @@ The Python SDK for the BreakingBadQuotes API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install breaking-bad-quotes-sdk
+pip install voxgig-sdk-breaking-bad-quotes
 ```
 
 Or install from source:

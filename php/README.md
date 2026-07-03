@@ -10,7 +10,7 @@ The PHP SDK for the BreakingBadQuotes API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/breaking-bad-quotes-sdk
+composer require voxgig-sdk/breaking-bad-quotes
 ```
 
 

@@ -10,7 +10,7 @@ The Lua SDK for the BreakingBadQuotes API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install breaking-bad-quotes-sdk
+luarocks install voxgig-sdk-breaking-bad-quotes
 ```
 
 If the module is not yet published, add the source directory to

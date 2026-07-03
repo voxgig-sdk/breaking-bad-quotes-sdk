@@ -10,7 +10,7 @@ The TypeScript SDK for the BreakingBadQuotes API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install breaking-bad-quotes
+npm install @voxgig-sdk/breaking-bad-quotes
 ```
 ## Tutorial: your first API call
 

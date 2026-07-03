@@ -10,13 +10,13 @@ The Ruby SDK for the BreakingBadQuotes API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install breaking-bad-quotes-sdk
+gem install voxgig-sdk-breaking-bad-quotes
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "breaking-bad-quotes-sdk"
+gem "voxgig-sdk-breaking-bad-quotes"
 ```
 
 Then run:
