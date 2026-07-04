@@ -9,9 +9,12 @@ The TypeScript SDK for the BreakingBadQuotes API — a type-safe, entity-oriente
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/breaking-bad-quotes
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { BreakingBadQuotesSDK } from 'breaking-bad-quotes'
+import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes'
 
-const client = new BreakingBadQuotesSDK({
-  apikey: process.env.BREAKING-BAD-QUOTES_APIKEY,
-})
+const client = new BreakingBadQuotesSDK()
 ```
 
 ### 2. List quotes
 
 ```ts
-const result = await client.Quote().list()
+const result = await client.quote.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a quote
 
 ```ts
-const result = await client.Quote().load({ id: 'example_id' })
+const result = await client.quote.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = BreakingBadQuotesSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.quote.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new BreakingBadQuotesSDK({ apikey: '...' })
+const client = new BreakingBadQuotesSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.quote
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new BreakingBadQuotesSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new BreakingBadQuotesSDK({
 Create a `.env.local` file at the project root:
 
 ```
-BREAKING-BAD-QUOTES_TEST_LIVE=TRUE
-BREAKING-BAD-QUOTES_APIKEY=<your-key>
+BREAKING_BAD_QUOTES_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new BreakingBadQuotesSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new BreakingBadQuotesSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -279,7 +276,7 @@ API path: `/quotes`
 
 ### Quote
 
-Create an instance: `const quote = client.Quote()`
+Create an instance: `const quote = client.quote`
 
 #### Operations
 
@@ -298,13 +295,13 @@ Create an instance: `const quote = client.Quote()`
 #### Example: Load
 
 ```ts
-const quote = await client.Quote().load({ id: 'quote_id' })
+const quote = await client.quote.load({ id: 'quote_id' })
 ```
 
 #### Example: List
 
 ```ts
-const quotes = await client.Quote().list()
+const quotes = await client.quote.list()
 ```
 
 
@@ -365,7 +362,7 @@ breaking-bad-quotes/
 Import the SDK from the package root:
 
 ```ts
-import { BreakingBadQuotesSDK } from 'breaking-bad-quotes'
+import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes'
 ```
 
 ### Entity state
@@ -375,11 +372,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const quote = client.quote
+await quote.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// quote.data() now returns the loaded quote data
+// quote.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

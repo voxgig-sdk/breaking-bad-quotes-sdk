@@ -245,6 +245,9 @@ func (sdk *BreakingBadQuotesSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Quote returns a Quote entity bound to this client.
+// Idiomatic usage: client.Quote(nil).List(nil, nil) or
+// client.Quote(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *BreakingBadQuotesSDK) Quote(data map[string]any) BreakingBadQuotesEntity {
 	return NewQuoteEntityFunc(sdk, data)
 }

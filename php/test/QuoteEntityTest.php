@@ -50,14 +50,12 @@ class QuoteEntityTest extends TestCase
         $quote_ref01_ent = $client->Quote(null);
         $quote_ref01_match = [];
 
-        [$quote_ref01_list_result, $err] = $quote_ref01_ent->list($quote_ref01_match, null);
-        $this->assertNull($err);
+        $quote_ref01_list_result = $quote_ref01_ent->list($quote_ref01_match, null);
         $this->assertIsArray($quote_ref01_list_result);
 
         // LOAD
         $quote_ref01_match_dt0 = [];
-        [$quote_ref01_data_dt0_loaded, $err] = $quote_ref01_ent->load($quote_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $quote_ref01_data_dt0_loaded = $quote_ref01_ent->load($quote_ref01_match_dt0, null);
         $this->assertNotNull($quote_ref01_data_dt0_loaded);
 
     }
@@ -92,7 +90,6 @@ function quote_basic_setup($extra)
         "BREAKINGBADQUOTES_TEST_QUOTE_ENTID" => $idmap,
         "BREAKINGBADQUOTES_TEST_LIVE" => "FALSE",
         "BREAKINGBADQUOTES_TEST_EXPLAIN" => "FALSE",
-        "BREAKINGBADQUOTES_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function quote_basic_setup($extra)
     if ($env["BREAKINGBADQUOTES_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["BREAKINGBADQUOTES_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://api.breakingbadquotes.xyz/v1",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -83,6 +80,7 @@ def make_config():
                       "orig": "number",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 0,
                     },
                   ],
                 },

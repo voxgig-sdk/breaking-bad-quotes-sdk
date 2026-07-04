@@ -2,6 +2,8 @@
 
 import { QuoteEntity } from './entity/QuoteEntity'
 
+export type * from './BreakingBadQuotesTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class BreakingBadQuotesSDK {
 
 
 
+  _quote?: QuoteEntity
+
+  // Idiomatic facade: `client.quote.list()` / `client.quote.load({ id })`.
+  get quote(): QuoteEntity {
+    return (this._quote ??= new QuoteEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.quote` instead. */
   Quote(data?: any) {
     const self = this
     return new QuoteEntity(self,data)

@@ -20,9 +20,6 @@ class BreakingBadQuotesConfig
             ],
             "options" => [
                 "base" => "https://api.breakingbadquotes.xyz/v1",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -88,6 +85,7 @@ class BreakingBadQuotesConfig
                         'orig' => 'number',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

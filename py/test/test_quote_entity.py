@@ -50,14 +50,12 @@ class TestQuoteEntity:
         quote_ref01_ent = client.Quote(None)
         quote_ref01_match = {}
 
-        quote_ref01_list_result, err = quote_ref01_ent.list(quote_ref01_match, None)
-        assert err is None
+        quote_ref01_list_result = quote_ref01_ent.list(quote_ref01_match, None)
         assert isinstance(quote_ref01_list_result, list)
 
         # LOAD
         quote_ref01_match_dt0 = {}
-        quote_ref01_data_dt0_loaded, err = quote_ref01_ent.load(quote_ref01_match_dt0, None)
-        assert err is None
+        quote_ref01_data_dt0_loaded = quote_ref01_ent.load(quote_ref01_match_dt0, None)
         assert quote_ref01_data_dt0_loaded is not None
 
 
@@ -98,7 +96,6 @@ def _quote_basic_setup(extra):
         "BREAKINGBADQUOTES_TEST_QUOTE_ENTID": idmap,
         "BREAKINGBADQUOTES_TEST_LIVE": "FALSE",
         "BREAKINGBADQUOTES_TEST_EXPLAIN": "FALSE",
-        "BREAKINGBADQUOTES_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +106,6 @@ def _quote_basic_setup(extra):
     if env.get("BREAKINGBADQUOTES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("BREAKINGBADQUOTES_APIKEY"),
             },
             extra or {},
         ])
