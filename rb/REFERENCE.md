@@ -8,7 +8,7 @@ Complete API reference for the BreakingBadQuotes Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'breaking-bad-quotes_sdk'
+require_relative 'BreakingBadQuotes_sdk'
 
 client = BreakingBadQuotesSDK.new(options)
 ```
@@ -93,17 +93,17 @@ quote = client.Quote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | Yes |  |
-| `quote` | ``$STRING`` | Yes |  |
+| `author` | `String` | Yes |  |
+| `quote` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Quote.list(nil)
+results = client.Quote.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

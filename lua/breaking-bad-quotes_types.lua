@@ -14,6 +14,8 @@
 ---@field id number
 
 ---@class QuoteListMatch
+---@field author? string
+---@field quote? string
 
 local M = {}
 

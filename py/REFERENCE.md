@@ -8,7 +8,7 @@ Complete API reference for the BreakingBadQuotes Python SDK.
 ### Constructor
 
 ```python
-from breaking-bad-quotes_sdk import BreakingBadQuotesSDK
+from breakingbadquotes_sdk import BreakingBadQuotesSDK
 
 client = BreakingBadQuotesSDK(options)
 ```
@@ -87,17 +87,17 @@ quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | Yes |  |
-| `quote` | ``$STRING`` | Yes |  |
+| `author` | `str` | Yes |  |
+| `quote` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Quote().list({})
+results = client.Quote().list()
 for quote in results:
     print(quote)
 ```

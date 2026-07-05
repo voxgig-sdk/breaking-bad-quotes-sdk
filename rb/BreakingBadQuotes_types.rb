@@ -30,7 +30,7 @@ QuoteLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Quote#list (any subset of Quote fields).
+# Request payload for Quote#list.
 #
 # @!attribute [rw] author
 #   @return [String, nil]

@@ -14,5 +14,8 @@ export interface QuoteLoadMatch {
   id: number
 }
 
-export type QuoteListMatch = Partial<Quote>
+export interface QuoteListMatch {
+  author?: string
+  quote?: string
+}
 
