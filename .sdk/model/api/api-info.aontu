@@ -15,9 +15,9 @@ main: {
           url: "https://api.breakingbadquotes.xyz/v1"
         }
       ]
+      summary: "A free API to retrieve quotes from Breaking Bad."
       title: "Breaking Bad Quotes API"
       version: "1.0.0"
+      website: "https://breakingbadquotes.xyz/"
     }
   }
-}
-
