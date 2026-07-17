@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- BreakingBadQuotes SDK exists test
 
 local sdk = require("breaking-bad-quotes_sdk")
 
