@@ -23,8 +23,8 @@ module BreakingBadQuotesTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("BREAKINGBADQUOTES_TEST_LIVE")
-    override = getenv("BREAKINGBADQUOTES_TEST_OVERRIDE")
+    live = getenv("BREAKING_BAD_QUOTES_TEST_LIVE")
+    override = getenv("BREAKING_BAD_QUOTES_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module BreakingBadQuotesTestRunner
       end
     end
 
-    explain = getenv("BREAKINGBADQUOTES_TEST_EXPLAIN")
-    m["BREAKINGBADQUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("BREAKING_BAD_QUOTES_TEST_EXPLAIN")
+    m["BREAKING_BAD_QUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ BreakingBadQuotesUtility.registrar = ->(u) {
   u.prepare_params = BreakingBadQuotesUtilities::PrepareParams
   u.prepare_path = BreakingBadQuotesUtilities::PreparePath
   u.prepare_query = BreakingBadQuotesUtilities::PrepareQuery
+  u.graphql_body = BreakingBadQuotesUtilities::GraphqlBody
+  u.graphql_errors = BreakingBadQuotesUtilities::GraphqlErrors
   u.result_basic = BreakingBadQuotesUtilities::ResultBasic
   u.result_body = BreakingBadQuotesUtilities::ResultBody
   u.result_headers = BreakingBadQuotesUtilities::ResultHeaders

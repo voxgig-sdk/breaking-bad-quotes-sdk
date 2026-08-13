@@ -26,8 +26,8 @@ import {
 describe('QuoteEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when BREAKINGBADQUOTES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('BREAKINGBADQUOTES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when BREAKING_BAD_QUOTES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BREAKING_BAD_QUOTES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = BreakingBadQuotesSDK.test()
@@ -63,7 +63,7 @@ describe('QuoteEntity', async () => {
     const quote_ref01_ent = client.Quote()
     const quote_ref01_match: any = {}
 
-    const quote_ref01_list = await quote_ref01_ent.list(quote_ref01_match)
+    const quote_ref01_list = (await quote_ref01_ent.list(quote_ref01_match)).map((e: any) => e.data())
 
 
 

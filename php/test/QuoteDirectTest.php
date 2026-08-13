@@ -119,11 +119,11 @@ function quote_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "BREAKINGBADQUOTES_TEST_QUOTE_ENTID" => [],
-        "BREAKINGBADQUOTES_TEST_LIVE" => "FALSE",
+        "BREAKING_BAD_QUOTES_TEST_QUOTE_ENTID" => [],
+        "BREAKING_BAD_QUOTES_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["BREAKINGBADQUOTES_TEST_LIVE"] === "TRUE";
+    $live = $env["BREAKING_BAD_QUOTES_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

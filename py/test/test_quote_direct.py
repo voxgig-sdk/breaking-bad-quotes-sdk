@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from breakingbadquotes_sdk.utility.voxgig_struct import voxgig_struct as vs
 from breakingbadquotes_sdk import BreakingBadQuotesSDK
-from core import helpers
+from breakingbadquotes_sdk.core import helpers
 from test import runner
 
 
@@ -102,11 +102,11 @@ def _quote_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "BREAKINGBADQUOTES_TEST_QUOTE_ENTID": {},
-        "BREAKINGBADQUOTES_TEST_LIVE": "FALSE",
+        "BREAKING_BAD_QUOTES_TEST_QUOTE_ENTID": {},
+        "BREAKING_BAD_QUOTES_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("BREAKINGBADQUOTES_TEST_LIVE") == "TRUE"
+    live = env.get("BREAKING_BAD_QUOTES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -16,11 +16,11 @@
 import pytest
 
 from breakingbadquotes_sdk import BreakingBadQuotesSDK
-from core.error import BreakingBadQuotesError
-from core.result import BreakingBadQuotesResult
-from core.response import BreakingBadQuotesResponse
-from core.spec import BreakingBadQuotesSpec
-from feature.base_feature import BreakingBadQuotesBaseFeature
+from breakingbadquotes_sdk.core.error import BreakingBadQuotesError
+from breakingbadquotes_sdk.core.result import BreakingBadQuotesResult
+from breakingbadquotes_sdk.core.response import BreakingBadQuotesResponse
+from breakingbadquotes_sdk.core.spec import BreakingBadQuotesSpec
+from breakingbadquotes_sdk.feature.base_feature import BreakingBadQuotesBaseFeature
 
 
 def _client():

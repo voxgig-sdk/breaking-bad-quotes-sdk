@@ -43,8 +43,8 @@ class BreakingBadQuotesTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('BREAKINGBADQUOTES_TEST_LIVE');
-        $override = self::getenv('BREAKINGBADQUOTES_TEST_OVERRIDE');
+        $live = self::getenv('BREAKING_BAD_QUOTES_TEST_LIVE');
+        $override = self::getenv('BREAKING_BAD_QUOTES_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class BreakingBadQuotesTestRunner
             }
         }
 
-        $explain = self::getenv('BREAKINGBADQUOTES_TEST_EXPLAIN');
+        $explain = self::getenv('BREAKING_BAD_QUOTES_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['BREAKINGBADQUOTES_TEST_EXPLAIN'] = $explain;
+            $m['BREAKING_BAD_QUOTES_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

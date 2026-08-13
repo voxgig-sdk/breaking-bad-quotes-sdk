@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# BreakingBadQuotes SDK exists test
 
 import pytest
 from breakingbadquotes_sdk import BreakingBadQuotesSDK

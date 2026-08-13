@@ -49,6 +49,7 @@ module BreakingBadQuotesConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes",
                   "parts" => [
@@ -84,6 +85,7 @@ module BreakingBadQuotesConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes/{number}",
                   "parts" => [

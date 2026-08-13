@@ -54,6 +54,7 @@ class BreakingBadQuotesConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes',
                   'parts' => [
@@ -89,6 +90,7 @@ class BreakingBadQuotesConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes/{number}',
                   'parts' => [

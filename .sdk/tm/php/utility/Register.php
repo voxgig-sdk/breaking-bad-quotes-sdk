@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ BreakingBadQuotesUtility::setRegistrar(function (BreakingBadQuotesUtility $u): v
     $u->prepare_params = [BreakingBadQuotesPrepareParams::class, 'call'];
     $u->prepare_path = [BreakingBadQuotesPreparePath::class, 'call'];
     $u->prepare_query = [BreakingBadQuotesPrepareQuery::class, 'call'];
+    $u->graphql_body = [BreakingBadQuotesGraphql::class, 'body'];
+    $u->graphql_errors = [BreakingBadQuotesGraphql::class, 'errors'];
     $u->result_basic = [BreakingBadQuotesResultBasic::class, 'call'];
     $u->result_body = [BreakingBadQuotesResultBody::class, 'call'];
     $u->result_headers = [BreakingBadQuotesResultHeaders::class, 'call'];
