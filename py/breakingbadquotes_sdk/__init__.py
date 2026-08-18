@@ -23,8 +23,8 @@ class BreakingBadQuotesSDK:
         utility = BreakingBadQuotesUtility()
         self._utility = utility
 
-        from breakingbadquotes_sdk.config import make_config
-        config = make_config()
+        from breakingbadquotes_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

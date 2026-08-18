@@ -40,7 +40,7 @@ class BreakingBadQuotesSDK
         $utility = new BreakingBadQuotesUtility();
         $this->_utility = $utility;
 
-        $config = BreakingBadQuotesConfig::make_config();
+        $config = BreakingBadQuotesConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
