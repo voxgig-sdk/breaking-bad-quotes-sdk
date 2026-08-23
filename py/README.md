@@ -256,8 +256,8 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `quote` |  |
+| `author` | The character who said the quote |
+| `quote` | The quote text |
 
 Operations: List, Load.
 
@@ -283,8 +283,8 @@ Create an instance: `quote = client.Quote()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `str` |  |
-| `quote` | `str` |  |
+| `author` | `str` | The character who said the quote |
+| `quote` | `str` | The quote text |
 
 #### Example: Load
 

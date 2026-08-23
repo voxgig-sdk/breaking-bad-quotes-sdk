@@ -33,6 +33,9 @@ class BreakingBadQuotesConfig
         return [
             "main" => [
                 "name" => "BreakingBadQuotes",
+                "slug" => "breaking-bad-quotes",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,11 +59,13 @@ class BreakingBadQuotesConfig
             [
               'name' => 'author',
               'req' => true,
+              'short' => 'The character who said the quote',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'quote',
               'req' => true,
+              'short' => 'The quote text',
               'type' => '`$STRING`',
             ],
           ],

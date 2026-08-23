@@ -93,8 +93,8 @@ quote = client.Quote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `String` | Yes |  |
-| `quote` | `String` | Yes |  |
+| `author` | `String` | Yes | The character who said the quote |
+| `quote` | `String` | Yes | The quote text |
 
 ### Operations
 

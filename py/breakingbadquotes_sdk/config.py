@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "BreakingBadQuotes",
+            "slug": "breaking-bad-quotes",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,11 +54,13 @@ def make_config():
           {
             "name": "author",
             "req": True,
+            "short": "The character who said the quote",
             "type": "`$STRING`",
           },
           {
             "name": "quote",
             "req": True,
+            "short": "The quote text",
             "type": "`$STRING`",
           },
         ],

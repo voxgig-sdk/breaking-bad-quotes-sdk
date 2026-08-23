@@ -92,8 +92,8 @@ $quote = $client->Quote();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | Yes |  |
-| `quote` | `string` | Yes |  |
+| `author` | `string` | Yes | The character who said the quote |
+| `quote` | `string` | Yes | The quote text |
 
 ### Operations
 

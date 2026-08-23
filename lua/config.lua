@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "BreakingBadQuotes",
+      slug = "breaking-bad-quotes",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,11 +33,13 @@ local function make_config()
           {
             ["name"] = "author",
             ["req"] = true,
+            ["short"] = "The character who said the quote",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "quote",
             ["req"] = true,
+            ["short"] = "The quote text",
             ["type"] = "`$STRING`",
           },
         },

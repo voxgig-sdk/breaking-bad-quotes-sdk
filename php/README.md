@@ -263,8 +263,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `quote` |  |
+| `author` | The character who said the quote |
+| `quote` | The quote text |
 
 Operations: List, Load.
 
@@ -290,8 +290,8 @@ Create an instance: `$quote = $client->Quote();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
-| `quote` | `string` |  |
+| `author` | `string` | The character who said the quote |
+| `quote` | `string` | The quote text |
 
 #### Example: Load
 
