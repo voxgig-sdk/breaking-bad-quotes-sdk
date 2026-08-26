@@ -38,7 +38,7 @@ try {
     // list() returns an array of Quote records — iterate directly.
     $quotes = $client->Quote()->list();
     foreach ($quotes as $item) {
-        echo $item["author"] . "\n";
+        echo $item["id"] . " " . $item["author"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -264,6 +264,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `author` | The character who said the quote |
+| `id` |  |
 | `quote` | The quote text |
 
 Operations: List, Load.
@@ -291,6 +292,7 @@ Create an instance: `$quote = $client->Quote();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `string` | The character who said the quote |
+| `id` | `string` |  |
 | `quote` | `string` | The quote text |
 
 #### Example: Load

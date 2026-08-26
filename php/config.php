@@ -42,6 +42,7 @@ class BreakingBadQuotesConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -60,6 +61,10 @@ class BreakingBadQuotesConfig
               'name' => 'author',
               'req' => true,
               'short' => 'The character who said the quote',
+              'type' => '`$STRING`',
+            ],
+            [
+              'name' => 'id',
               'type' => '`$STRING`',
             ],
             [

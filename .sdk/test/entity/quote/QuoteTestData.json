@@ -2,27 +2,27 @@
   "existing": {
     "quote": {
       "QUOTE00": {
-        "author": "s14",
-        "quote": "s15",
-        "id": "QUOTE00"
+        "author": "s1e",
+        "id": "QUOTE00",
+        "quote": "s20"
       },
       "QUOTE01": {
-        "author": "s28",
-        "quote": "s29",
-        "id": "QUOTE01"
+        "author": "s3c",
+        "id": "QUOTE01",
+        "quote": "s3e"
       },
       "QUOTE02": {
-        "author": "s3c",
-        "quote": "s3d",
-        "id": "QUOTE02"
+        "author": "s5a",
+        "id": "QUOTE02",
+        "quote": "s5c"
       }
     }
   },
   "new": {
     "quote": {
       "quote_ref01": {
-        "author": "s50",
-        "quote": "s51"
+        "author": "s78",
+        "quote": "s7a"
       }
     }
   }

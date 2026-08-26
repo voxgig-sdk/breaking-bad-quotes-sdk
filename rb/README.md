@@ -37,7 +37,7 @@ begin
   # list returns an Array of Quote records — iterate directly.
   quotes = client.Quote.list
   quotes.each do |item|
-    puts "#{item["author"]}"
+    puts "#{item["id"]} #{item["author"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -254,6 +254,7 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `author` | The character who said the quote |
+| `id` |  |
 | `quote` | The quote text |
 
 Operations: List, Load.
@@ -281,6 +282,7 @@ Create an instance: `quote = client.Quote`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `String` | The character who said the quote |
+| `id` | `String` |  |
 | `quote` | `String` | The quote text |
 
 #### Example: Load

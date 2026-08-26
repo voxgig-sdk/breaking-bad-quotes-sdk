@@ -99,6 +99,7 @@ fmt.Println(quote.GetName()) // "quote"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `string` | Yes | The character who said the quote |
+| `id` | `string` | No |  |
 | `quote` | `string` | Yes | The quote text |
 
 ### Operations

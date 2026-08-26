@@ -15,6 +15,7 @@ import (
 // Quote is the typed data model for the quote entity.
 type Quote struct {
 	Author string `json:"author"`
+	Id *string `json:"id,omitempty"`
 	Quote string `json:"quote"`
 }
 
@@ -26,6 +27,7 @@ type QuoteLoadMatch struct {
 // QuoteListMatch is the typed request payload for Quote.ListTyped.
 type QuoteListMatch struct {
 	Author *string `json:"author,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Quote *string `json:"quote,omitempty"`
 }
 
