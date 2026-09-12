@@ -60,6 +60,10 @@ module BreakingBadQuotesConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "quote",
           "op" => {
             "list" => {
@@ -71,14 +75,19 @@ module BreakingBadQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes",
-                  "parts" => [
-                    "quotes",
+                  "segments" => [
+                    {
+                      "lit" => "quotes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "quotes",
+                  ],
                 },
               ],
             },
@@ -102,15 +111,19 @@ module BreakingBadQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes/{number}",
-                  "parts" => [
-                    "quotes",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "number" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "quotes",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -120,6 +133,10 @@ module BreakingBadQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "quotes",
+                    "{id}",
+                  ],
                 },
               ],
             },

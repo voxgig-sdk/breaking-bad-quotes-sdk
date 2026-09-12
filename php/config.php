@@ -74,6 +74,10 @@ class BreakingBadQuotesConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'quote',
           'op' => [
             'list' => [
@@ -85,13 +89,18 @@ class BreakingBadQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes',
-                  'parts' => [
-                    'quotes',
+                  'segments' => [
+                    [
+                      'lit' => 'quotes',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quotes',
                   ],
                 ],
               ],
@@ -116,13 +125,17 @@ class BreakingBadQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quotes/{number}',
-                  'parts' => [
-                    'quotes',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'number' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'quotes',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -133,6 +146,10 @@ class BreakingBadQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quotes',
+                    '{id}',
                   ],
                 ],
               ],
