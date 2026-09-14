@@ -105,7 +105,7 @@ local results, err = client:Quote():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
+| TypeScript | `@voxgig-sdk/breaking-bad-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
 | Python | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
 | PHP | `voxgig-sdk/breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/breaking-bad-quotes-sdk/go` | `go get github.com/voxgig-sdk/breaking-bad-quotes-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Quote():list()
 ### TypeScript
 
 ```ts
-import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes'
+import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes-sdk'
 
 const client = new BreakingBadQuotesSDK()
 

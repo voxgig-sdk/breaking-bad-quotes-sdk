@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes'
+import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes-sdk'
 
 const client = new BreakingBadQuotesSDK()
 ```
@@ -429,7 +429,7 @@ breaking-bad-quotes/
 Import the SDK from the package root:
 
 ```ts
-import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes'
+import { BreakingBadQuotesSDK } from '@voxgig-sdk/breaking-bad-quotes-sdk'
 ```
 
 ### Entity state
