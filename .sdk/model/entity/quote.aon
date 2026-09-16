@@ -35,6 +35,12 @@ main: kit: entity: quote: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /quotes"
+            json: "{\"operationId\":\"getRandomQuote\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"author\":\"Walter White\",\"quote\":\"I am not in danger, Skyler. I AM the danger!\"}],\"schema\":{\"items\":{\"properties\":{\"author\":{\"description\":\"The character who said the quote\",\"type\":\"string\"},\"quote\":{\"description\":\"The quote text\",\"type\":\"string\"}},\"required\":[\"quote\",\"author\"],\"type\":\"object\"},\"maxItems\":1,\"minItems\":1,\"type\":\"array\"}}},\"description\":\"Successful response with a random quote\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/quotes"
           segments: [
@@ -64,6 +70,12 @@ main: kit: entity: quote: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /quotes/{number}"
+            json: "{\"operationId\":\"getMultipleRandomQuotes\",\"parameters\":[{\"description\":\"Number of random quotes to retrieve\",\"in\":\"path\",\"name\":\"number\",\"required\":true,\"schema\":{\"example\":5,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"author\":\"Walter White\",\"quote\":\"I am not in danger, Skyler. I AM the danger!\"},{\"author\":\"Jesse Pinkman\",\"quote\":\"Yeah, science!\"},{\"author\":\"Walter White\",\"quote\":\"Say my name.\"},{\"author\":\"Walter White\",\"quote\":\"Tread lightly.\"},{\"author\":\"Walter White\",\"quote\":\"I won.\"}],\"schema\":{\"items\":{\"properties\":{\"author\":{\"description\":\"The character who said the quote\",\"type\":\"string\"},\"quote\":{\"description\":\"The quote text\",\"type\":\"string\"}},\"required\":[\"quote\",\"author\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with multiple random quotes\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/quotes/{number}"

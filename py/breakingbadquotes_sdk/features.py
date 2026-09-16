@@ -1,12 +1,18 @@
 # BreakingBadQuotes SDK feature factory
 
 from breakingbadquotes_sdk.feature.base_feature import BreakingBadQuotesBaseFeature
+from breakingbadquotes_sdk.feature.ratelimit_feature import BreakingBadQuotesRatelimitFeature
+from breakingbadquotes_sdk.feature.retry_feature import BreakingBadQuotesRetryFeature
 from breakingbadquotes_sdk.feature.test_feature import BreakingBadQuotesTestFeature
+from breakingbadquotes_sdk.feature.timeout_feature import BreakingBadQuotesTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: BreakingBadQuotesBaseFeature(),
+    "ratelimit": lambda: BreakingBadQuotesRatelimitFeature(),
+    "retry": lambda: BreakingBadQuotesRetryFeature(),
     "test": lambda: BreakingBadQuotesTestFeature(),
+    "timeout": lambda: BreakingBadQuotesTimeoutFeature(),
 }
 
 
