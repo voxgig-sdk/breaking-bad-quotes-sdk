@@ -105,12 +105,12 @@ local results, err = client:Quote():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/breaking-bad-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
-| Python | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
-| PHP | `voxgig-sdk/breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
+| TypeScript | `@voxgig-sdk/breaking-bad-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/tags) |
+| Python | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/tags) |
+| PHP | `voxgig-sdk/breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/breaking-bad-quotes-sdk/go` | `go get github.com/voxgig-sdk/breaking-bad-quotes-sdk/go@latest` |
-| Ruby | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
-| Lua | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/releases) |
+| Ruby | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/tags) |
+| Lua | `voxgig-sdk-breaking-bad-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/breaking-bad-quotes-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/breaking-bad-quotes-sdk/go-cli` | `go install github.com/voxgig-sdk/breaking-bad-quotes-sdk/go-cli/cmd/breaking-bad-quotes@latest` |
 | Go MCP server | `github.com/voxgig-sdk/breaking-bad-quotes-sdk/go-mcp` | `go get github.com/voxgig-sdk/breaking-bad-quotes-sdk/go-mcp@latest` |
 
