@@ -99,19 +99,22 @@ module BreakingBadQuotesConfig
           "fields" => [
             {
               "name" => "author",
+              "title" => "Author",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The character who said the quote",
-              "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "title" => "Id",
               "type" => "`$STRING`",
             },
             {
               "name" => "quote",
+              "title" => "Quote",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The quote text",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -125,7 +128,6 @@ module BreakingBadQuotesConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes",
@@ -134,14 +136,16 @@ module BreakingBadQuotesConfig
                       "lit" => "quotes",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "quotes",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "quotes",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -150,26 +154,9 @@ module BreakingBadQuotesConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => 5,
-                        "kind" => "param",
-                        "name" => "id",
-                        "orig" => "number",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quotes/{number}",
-                  "rename" => {
-                    "param" => {
-                      "number" => "id",
-                    },
-                  },
                   "segments" => [
                     {
                       "lit" => "quotes",
@@ -178,19 +165,36 @@ module BreakingBadQuotesConfig
                       "var" => "id",
                     },
                   ],
-                  "select" => {
-                    "exist" => [
-                      "id",
-                    ],
+                  "parts" => [
+                    "quotes",
+                    "{id}",
+                  ],
+                  "rename" => {
+                    "param" => {
+                      "number" => "id",
+                    },
                   },
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "quotes",
-                    "{id}",
-                  ],
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "number",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => 5,
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "id",
+                    ],
+                  },
                 },
               ],
             },

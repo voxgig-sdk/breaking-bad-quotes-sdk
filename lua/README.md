@@ -43,7 +43,7 @@ local quotes, err = client:Quote():list()
 if err then error(err) end
 
 for _, item in ipairs(quotes) do
-  print(item["id"], item["author"])
+  print(item["id"])
 end
 ```
 
