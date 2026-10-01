@@ -1,6 +1,7 @@
 package core
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 
@@ -82,6 +83,22 @@ func NewBreakingBadQuotesSDK(options map[string]any) *BreakingBadQuotesSDK {
 	sdk.utility.FeatureHook(sdk.rootctx, "PostConstruct")
 
 	return sdk
+}
+
+// The client holds the credential in its options, so a print or a JSON dump
+// carries the name alone. Value receivers: a dereferenced client prints the
+// same way.
+func (sdk BreakingBadQuotesSDK) String() string {
+	return "BreakingBadQuotes " + vs.Jsonify(map[string]any{"name": "BreakingBadQuotes"},
+		map[string]any{"indent": 0})
+}
+
+func (sdk BreakingBadQuotesSDK) GoString() string {
+	return sdk.String()
+}
+
+func (sdk BreakingBadQuotesSDK) MarshalJSON() ([]byte, error) {
+	return json.Marshal(map[string]any{"name": "BreakingBadQuotes"})
 }
 
 func (sdk *BreakingBadQuotesSDK) OptionsMap() map[string]any {
@@ -210,7 +227,7 @@ func (sdk *BreakingBadQuotesSDK) rawRequest(fetchargs map[string]any) (map[strin
 
 	fetchdef, err := sdk.Prepare(fetchargs)
 	if err != nil {
-		return map[string]any{"ok": false, "err": err}, nil
+		return map[string]any{"ok": false, "err": sdk.cleanErr(sdk.rootctx, err)}, nil
 	}
 
 	if fetchargs == nil {
@@ -236,7 +253,7 @@ func (sdk *BreakingBadQuotesSDK) rawRequest(fetchargs map[string]any) (map[strin
 	fetched, fetchErr := utility.Fetcher(ctx, url, fetchdef)
 
 	if fetchErr != nil {
-		return map[string]any{"ok": false, "err": fetchErr}, nil
+		return map[string]any{"ok": false, "err": sdk.cleanErr(ctx, fetchErr)}, nil
 	}
 
 	if fetched == nil {
@@ -278,6 +295,14 @@ func (sdk *BreakingBadQuotesSDK) rawRequest(fetchargs map[string]any) (map[strin
 	}
 
 	return map[string]any{"ok": false, "err": ctx.MakeError("direct_invalid", "invalid response type")}, nil
+}
+
+// A raw request returns its error rather than passing it through MakeError.
+func (sdk *BreakingBadQuotesSDK) cleanErr(ctx *Context, err error) error {
+	if cleaned, ok := sdk.utility.Clean(ctx, err).(error); ok {
+		return cleaned
+	}
+	return err
 }
 
 func (sdk *BreakingBadQuotesSDK) Graphql(

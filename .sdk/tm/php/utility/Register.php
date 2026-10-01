@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 BreakingBadQuotesUtility::setRegistrar(function (BreakingBadQuotesUtility $u): void {
     $u->clean = [BreakingBadQuotesClean::class, 'call'];
+    $u->clean_add = [BreakingBadQuotesClean::class, 'add'];
+    $u->clean_explain = [BreakingBadQuotesDone::class, 'clean_explain'];
     $u->done = [BreakingBadQuotesDone::class, 'call'];
     $u->make_error = [BreakingBadQuotesMakeError::class, 'call'];
     $u->feature_add = [BreakingBadQuotesFeatureAdd::class, 'call'];

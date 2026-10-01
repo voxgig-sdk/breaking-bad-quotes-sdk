@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 BreakingBadQuotesUtility.registrar = ->(u) {
   u.clean = BreakingBadQuotesUtilities::Clean
+  u.clean_add = BreakingBadQuotesUtilities::CleanAdd
+  u.clean_explain = BreakingBadQuotesUtilities::CleanExplain
   u.done = BreakingBadQuotesUtilities::Done
   u.make_error = BreakingBadQuotesUtilities::MakeError
   u.feature_add = BreakingBadQuotesUtilities::FeatureAdd
