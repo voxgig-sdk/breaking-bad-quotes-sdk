@@ -45,6 +45,10 @@ main: kit: entity: quote: {
           }
           m: "GET"
           o: "/quotes"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "quotes"
@@ -89,6 +93,10 @@ main: kit: entity: quote: {
             param: {
               number: "id"
             }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "A free API to retrieve quotes from Breaking Bad. Get random quotes from your favorite characters.",
+      "Production server",
+      "Successful response with a random quote",
+      "Successful response with multiple random quotes",
+      "The character who said the quote",
+      "The quote text"
+    ]
+  }
 }
