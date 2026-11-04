@@ -2,37 +2,37 @@
   "existing": {
     "quote": {
       "QUOTE00": {
-        "author": "s1e",
-        "id": "QUOTE00",
-        "quote": "s20"
+        "author": "s14",
+        "quote": "s15",
+        "number": "NUMBER01"
       },
       "QUOTE01": {
-        "author": "s3c",
-        "id": "QUOTE01",
-        "quote": "s3e"
+        "author": "s28",
+        "quote": "s29",
+        "number": "NUMBER01"
       },
       "QUOTE02": {
-        "author": "s5a",
-        "id": "QUOTE02",
-        "quote": "s5c"
+        "author": "s3c",
+        "quote": "s3d",
+        "number": "NUMBER01"
       }
     }
   },
   "new": {
     "quote": {
       "quote_ref01": {
-        "author": "s78",
-        "quote": "s7a"
+        "author": "s50",
+        "quote": "s51"
       }
     }
   },
   "requests": {
-    "GET /quotes": {
+    "GET /quotes/{number}": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
     },
-    "GET /quotes/{number}": {
+    "GET /quotes": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

@@ -13,41 +13,20 @@
 # @!attribute [rw] author
 #   @return [String]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
-#
 # @!attribute [rw] quote
 #   @return [String]
 Quote = Struct.new(
   :author,
-  :id,
   :quote,
-  keyword_init: true
-)
-
-# Request payload for Quote#load.
-#
-# @!attribute [rw] id
-#   @return [Integer]
-QuoteLoadMatch = Struct.new(
-  :id,
   keyword_init: true
 )
 
 # Request payload for Quote#list.
 #
-# @!attribute [rw] author
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] quote
-#   @return [String, nil]
+# @!attribute [rw] number
+#   @return [Integer]
 QuoteListMatch = Struct.new(
-  :author,
-  :id,
-  :quote,
+  :number,
   keyword_init: true
 )
 

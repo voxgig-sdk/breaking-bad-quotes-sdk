@@ -24,6 +24,7 @@
         "repr": "auto"
       },
       "contributor": {},
+      "copies": "merge",
       "doc": {
         "active": true,
         "assets": {
@@ -105,13 +106,6 @@
               "sh": "The character who said the quote",
               "t": "`$STRING`"
             },
-            "id": {
-              "a": true,
-              "h": "Id",
-              "n": "id",
-              "r": false,
-              "t": "`$STRING`"
-            },
             "quote": {
               "a": true,
               "h": "Quote",
@@ -121,16 +115,58 @@
               "t": "`$STRING`"
             }
           },
-          "id": {
-            "field": "id",
-            "name": "id"
-          },
           "name": "quote",
           "op": {
             "list": {
               "input": "data",
               "name": "list",
               "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /quotes/{number}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": 5,
+                        "k": "param",
+                        "n": "number",
+                        "or": "number",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/quotes/{number}",
+                  "q": {
+                    "exist": [
+                      "number"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "quotes"
+                    },
+                    {
+                      "var": "number"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
                 {
                   "a": true,
                   "co": {
@@ -151,62 +187,6 @@
                   "s": [
                     {
                       "lit": "quotes"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                }
-              ]
-            },
-            "load": {
-              "input": "data",
-              "name": "load",
-              "points": [
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /quotes/{number}",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "params": [
-                      {
-                        "a": true,
-                        "ex": 5,
-                        "k": "param",
-                        "n": "id",
-                        "or": "number",
-                        "r": true,
-                        "t": "`$INTEGER`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/quotes/{number}",
-                  "q": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "r": {
-                    "param": {
-                      "number": "id"
-                    }
-                  },
-                  "rs": {
-                    "kind": "json",
-                    "media": "application/json"
-                  },
-                  "s": [
-                    {
-                      "lit": "quotes"
-                    },
-                    {
-                      "var": "id"
                     }
                   ],
                   "t": {
@@ -657,31 +637,12 @@
                   }
                 }
               ]
-            },
-            {
-              "a": true,
-              "d": {},
-              "i": {
-                "ref": "quote_ref01",
-                "srcdatavar": "quote_ref01_data",
-                "suffix": "_dt0"
-              },
-              "m": {
-                "id": "quote01"
-              },
-              "o": "load",
-              "s": [],
-              "v": [
-                {
-                  "apply": "TextFieldMark",
-                  "def": {
-                    "mark": "Mark01-quote_ref01"
-                  }
-                }
-              ]
             }
           ]
         }
+      },
+      "http": {
+        "useragent": ""
       },
       "info": {
         "auth": false,

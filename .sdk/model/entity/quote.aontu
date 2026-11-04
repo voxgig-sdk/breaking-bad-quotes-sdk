@@ -12,12 +12,6 @@ main: kit: entity: quote: {
       sh: "The character who said the quote"
       t: "`$STRING`"
     }
-    id: {
-      h: "Id"
-      n: "id"
-      r: false
-      t: "`$STRING`"
-    }
     quote: {
       h: "Quote"
       n: "quote"
@@ -27,16 +21,53 @@ main: kit: entity: quote: {
     }
   }
 
-  id: {
-    field: "id"
-    name: "id"
-  }
-
   name: "quote"
   op: {
     list: {
       name: "list"
       points: [
+        {
+          co: {
+            id: "GET /quotes/{number}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: 5
+                k: "param"
+                n: "number"
+                or: "number"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quotes/{number}"
+          q: {
+            exist: [
+              "number"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "quotes"
+            }
+            {
+              var: "number"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
         {
           co: {
             id: "GET /quotes"
@@ -52,58 +83,6 @@ main: kit: entity: quote: {
           s: [
             {
               lit: "quotes"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-      ]
-    }
-    load: {
-      name: "load"
-      points: [
-        {
-          co: {
-            id: "GET /quotes/{number}"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            params: [
-              {
-                ex: 5
-                k: "param"
-                n: "id"
-                or: "number"
-                r: true
-                t: "`$INTEGER`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/quotes/{number}"
-          q: {
-            exist: [
-              "id"
-            ]
-          }
-          r: {
-            param: {
-              number: "id"
-            }
-          }
-          rs: {
-            kind: "json"
-            media: "application/json"
-          }
-          s: [
-            {
-              lit: "quotes"
-            }
-            {
-              var: "id"
             }
           ]
           t: {

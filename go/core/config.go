@@ -98,11 +98,6 @@ func MakeConfig() map[string]any {
 						"short": "The character who said the quote",
 					},
 					map[string]any{
-						"name": "id",
-						"title": "Id",
-						"type": "`$STRING`",
-					},
-					map[string]any{
 						"name": "quote",
 						"title": "Quote",
 						"type": "`$STRING`",
@@ -110,16 +105,55 @@ func MakeConfig() map[string]any {
 						"short": "The quote text",
 					},
 				},
-				"id": map[string]any{
-					"field": "id",
-					"name": "id",
-				},
 				"name": "quote",
 				"op": map[string]any{
 					"list": map[string]any{
 						"input": "data",
 						"name": "list",
 						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/quotes/{number}",
+								"segments": []any{
+									map[string]any{
+										"lit": "quotes",
+									},
+									map[string]any{
+										"var": "number",
+									},
+								},
+								"parts": []any{
+									"quotes",
+									"{number}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "number",
+											"orig": "number",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": 5,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"number",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
@@ -139,59 +173,6 @@ func MakeConfig() map[string]any {
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
-								"response": map[string]any{
-									"kind": "json",
-									"media": "application/json",
-								},
-							},
-						},
-					},
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/quotes/{number}",
-								"segments": []any{
-									map[string]any{
-										"lit": "quotes",
-									},
-									map[string]any{
-										"var": "id",
-									},
-								},
-								"parts": []any{
-									"quotes",
-									"{id}",
-								},
-								"rename": map[string]any{
-									"param": map[string]any{
-										"number": "id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"name": "id",
-											"orig": "number",
-											"type": "`$INTEGER`",
-											"kind": "param",
-											"reqd": true,
-											"example": 5,
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
 								"response": map[string]any{
 									"kind": "json",
 									"media": "application/json",

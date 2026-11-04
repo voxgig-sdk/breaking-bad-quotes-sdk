@@ -17,12 +17,6 @@ type ListArgs struct {
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional filter map; omit it for the first page"`
 }
 
-// LoadArgs is what an agent sends to breaking-bad-quotes_load.
-type LoadArgs struct {
-	Entity string         `json:"entity" jsonschema:"one of: quote"`
-	Query  map[string]any `json:"query" jsonschema:"match map naming the record, such as {\"id\":1}"`
-}
-
 func registerTools(server *mcp.Server, client *sdk.BreakingBadQuotesSDK) {
 	mcp.AddTool(server, &mcp.Tool{
 		Name:        "breaking-bad-quotes_list",
@@ -31,14 +25,6 @@ func registerTools(server *mcp.Server, client *sdk.BreakingBadQuotesSDK) {
 		InputSchema: entitySchema[ListArgs]("quote"),
 	}, func(ctx context.Context, req *mcp.CallToolRequest, args ListArgs) (*mcp.CallToolResult, any, error) {
 		return runOp(ctx, client, "list", args.Entity, args.Query)
-	})
-	mcp.AddTool(server, &mcp.Tool{
-		Name:        "breaking-bad-quotes_load",
-		Description: "Load one record from BreakingBadQuotes. Args: entity, query (match map naming the record, such as {\"id\":1}). Returns the record as JSON.",
-		Annotations: &mcp.ToolAnnotations{ReadOnlyHint: true},
-		InputSchema: entitySchema[LoadArgs]("quote"),
-	}, func(ctx context.Context, req *mcp.CallToolRequest, args LoadArgs) (*mcp.CallToolResult, any, error) {
-		return runOp(ctx, client, "load", args.Entity, args.Query)
 	})
 }
 
@@ -101,7 +87,7 @@ func runOp(_ context.Context, client *sdk.BreakingBadQuotesSDK, op string, entit
 
 // entityFor dispatches on the lowercase entity name. The generator
 // emits one `case "<name>":` per entity defined in the SDK model.
-func entityFor(client *sdk.BreakingBadQuotesSDK, name string) (sdk.BreakingBadQuotesEntity, error) {
+func entityFor(client *sdk.BreakingBadQuotesSDK, name string) (sdk.BreakingBadQuotesEntityBase, error) {
 	switch strings.ToLower(name) {
 	case "quote":
 		return client.Quote(nil), nil

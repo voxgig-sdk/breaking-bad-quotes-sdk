@@ -12,5 +12,5 @@ var NewTestFeatureFunc func() Feature
 
 var NewTimeoutFeatureFunc func() Feature
 
-var NewQuoteEntityFunc func(client *BreakingBadQuotesSDK, entopts map[string]any) BreakingBadQuotesEntity
+var NewQuoteEntityFunc func(client *BreakingBadQuotesSDK, entopts map[string]any) BreakingBadQuotesEntityBase
 

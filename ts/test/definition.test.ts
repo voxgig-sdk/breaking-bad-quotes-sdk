@@ -13,35 +13,10 @@ const PLAN: any[] = [
     "accessor": "Quote",
     "op": "list",
     "method": "GET",
-    "path": "/quotes",
-    "args": [],
-    "select": {},
-    "headers": [],
-    "cookies": [],
-    "responseMedia": [
-      "application/json"
-    ],
-    "query": [],
-    "queryArgs": [],
-    "auth": null,
-    "status": 200,
-    "sample": [
-      {
-        "quote": "I am not in danger, Skyler. I AM the danger!",
-        "author": "Walter White"
-      }
-    ],
-    "idField": "id"
-  },
-  {
-    "entity": "quote",
-    "accessor": "Quote",
-    "op": "load",
-    "method": "GET",
     "path": "/quotes/{number}",
     "args": [
       {
-        "name": "id",
+        "name": "number",
         "wire": "number",
         "value": 5
       }
@@ -67,6 +42,31 @@ const PLAN: any[] = [
       },
       {
         "quote": "Say my name.",
+        "author": "Walter White"
+      }
+    ],
+    "idField": "id"
+  },
+  {
+    "entity": "quote",
+    "accessor": "Quote",
+    "op": "list",
+    "method": "GET",
+    "path": "/quotes",
+    "args": [],
+    "select": {},
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [],
+    "queryArgs": [],
+    "auth": null,
+    "status": 200,
+    "sample": [
+      {
+        "quote": "I am not in danger, Skyler. I AM the danger!",
         "author": "Walter White"
       }
     ],

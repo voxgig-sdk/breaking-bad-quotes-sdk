@@ -192,6 +192,20 @@ func (sdk *BreakingBadQuotesSDK) Prepare(fetchargs map[string]any) (map[string]a
 		}
 	}
 
+	// A raw request has no point to declare its response type, so it asks
+	// for the JSON it reads: an API that negotiates on Accept otherwise
+	// answers in its own default format. A caller's own accept wins.
+	hasAccept := false
+	for k := range ctx.Spec.Headers {
+		if strings.ToLower(k) == "accept" {
+			hasAccept = true
+			break
+		}
+	}
+	if !hasAccept {
+		ctx.Spec.Headers["accept"] = "application/json"
+	}
+
 	_, err := utility.PrepareAuth(ctx)
 	if err != nil {
 		return nil, err
@@ -375,7 +389,7 @@ func (sdk *BreakingBadQuotesSDK) Graphql(
 // Quote returns a Quote entity bound to this client.
 // Idiomatic usage: client.Quote(nil).List(nil, nil) or
 // client.Quote(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *BreakingBadQuotesSDK) Quote(data map[string]any) BreakingBadQuotesEntity {
+func (sdk *BreakingBadQuotesSDK) Quote(data map[string]any) BreakingBadQuotesEntityBase {
 	return NewQuoteEntityFunc(sdk, data)
 }
 

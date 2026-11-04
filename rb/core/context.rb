@@ -115,7 +115,7 @@ class BreakingBadQuotesContext
   end
 
   def make_error(code, msg)
-    BreakingBadQuotesError.new(code, msg, self)
+    BreakingBadQuotesError.new(msg, code: code, ctx: self)
   end
 
   # The serialised context leaves the pipeline (a logger, an error dump), so

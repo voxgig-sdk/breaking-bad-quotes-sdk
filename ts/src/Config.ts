@@ -139,11 +139,6 @@ class Config {
           "short": "The character who said the quote"
         },
         {
-          "name": "id",
-          "title": "Id",
-          "type": "`$STRING`"
-        },
-        {
           "name": "quote",
           "title": "Quote",
           "type": "`$STRING`",
@@ -151,16 +146,55 @@ class Config {
           "short": "The quote text"
         }
       ],
-      "id": {
-        "field": "id",
-        "name": "id"
-      },
       "name": "quote",
       "op": {
         "list": {
           "input": "data",
           "name": "list",
           "points": [
+            {
+              "kind": "http",
+              "method": "GET",
+              "orig": "/quotes/{number}",
+              "segments": [
+                {
+                  "lit": "quotes"
+                },
+                {
+                  "var": "number"
+                }
+              ],
+              "parts": [
+                "quotes",
+                "{number}"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "number",
+                    "orig": "number",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": 5
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "number"
+                ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
+            },
             {
               "kind": "http",
               "method": "GET",
@@ -180,59 +214,6 @@ class Config {
               },
               "args": {},
               "select": {},
-              "response": {
-                "kind": "json",
-                "media": "application/json"
-              }
-            }
-          ]
-        },
-        "load": {
-          "input": "data",
-          "name": "load",
-          "points": [
-            {
-              "kind": "http",
-              "method": "GET",
-              "orig": "/quotes/{number}",
-              "segments": [
-                {
-                  "lit": "quotes"
-                },
-                {
-                  "var": "id"
-                }
-              ],
-              "parts": [
-                "quotes",
-                "{id}"
-              ],
-              "rename": {
-                "param": {
-                  "number": "id"
-                }
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "args": {
-                "params": [
-                  {
-                    "name": "id",
-                    "orig": "number",
-                    "type": "`$INTEGER`",
-                    "kind": "param",
-                    "reqd": true,
-                    "example": 5
-                  }
-                ]
-              },
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
               "response": {
                 "kind": "json",
                 "media": "application/json"

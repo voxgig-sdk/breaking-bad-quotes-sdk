@@ -75,7 +75,7 @@ func runOp(client *sdk.BreakingBadQuotesSDK, op string, query *eng.Value, entity
 
 // entityFor dispatches on the lowercase entity name. The generator
 // emits one `case "<name>":` per entity defined in the SDK model.
-func entityFor(client *sdk.BreakingBadQuotesSDK, name string) (sdk.BreakingBadQuotesEntity, error) {
+func entityFor(client *sdk.BreakingBadQuotesSDK, name string) (sdk.BreakingBadQuotesEntityBase, error) {
 	switch strings.ToLower(name) {
 	case "quote":
 		return client.Quote(nil), nil

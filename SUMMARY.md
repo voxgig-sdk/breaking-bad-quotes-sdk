@@ -14,9 +14,9 @@ An entity groups related API operations. An operation can have several routes wi
 
 ### Quote
 
-Results: Successful response with a random quote; Successful response with multiple random quotes.
+Results: Successful response with multiple random quotes; Successful response with a random quote.
 
-SDK operations: `list`, `load`.
+SDK operations: `list`.
 
 Key fields to recognise:
 
@@ -29,8 +29,8 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
+| Quote | `list` | `GET /quotes/{number}` | See reference |
 | Quote | `list` | `GET /quotes` | See reference |
-| Quote | `load` | `GET /quotes/{number}` | See reference |
 
 ## Connect to the API
 
@@ -79,7 +79,7 @@ Use the MCP server to expose supported API operations to an MCP client.
 Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
 - `breaking-bad-quotes_list`: List records for an entity. Supported entities: `quote`.
-- `breaking-bad-quotes_load`: Load one record for an entity. Supported entities: `quote`.
+- `breaking-bad-quotes_load`: Load one record for an entity. No active entity supports this operation.
 
 ## Operational features
 

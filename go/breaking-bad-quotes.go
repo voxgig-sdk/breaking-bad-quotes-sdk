@@ -13,7 +13,11 @@ type Context = core.Context
 type Utility = core.Utility
 type Feature = core.Feature
 type Entity = core.Entity
-type BreakingBadQuotesEntity = core.BreakingBadQuotesEntity
+type BreakingBadQuotesEntityBase = core.BreakingBadQuotesEntityBase
+
+// Deprecated: use BreakingBadQuotesEntityBase.
+type BreakingBadQuotesEntity = core.BreakingBadQuotesEntityBase
+
 type StreamItem = core.StreamItem
 type FetcherFunc = core.FetcherFunc
 type Spec = core.Spec
@@ -42,7 +46,7 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewQuoteEntityFunc = func(client *core.BreakingBadQuotesSDK, entopts map[string]any) core.BreakingBadQuotesEntity {
+	core.NewQuoteEntityFunc = func(client *core.BreakingBadQuotesSDK, entopts map[string]any) core.BreakingBadQuotesEntityBase {
 		return entity.NewQuoteEntity(client, entopts)
 	}
 }

@@ -13,8 +13,7 @@ guide: {
       op: list: method: *GET
     }
     path: "/quotes/{number}": {
-      rename: param: "number": *"id"
-      op: load: method: *GET
+      op: list: method: *GET
     }
   }
 
